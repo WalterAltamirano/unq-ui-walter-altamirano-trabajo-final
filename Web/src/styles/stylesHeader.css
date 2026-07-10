@@ -1,0 +1,21 @@
+header {
+    width: 100%;
+    height: 75px;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 2px;
+    border: 1px solid black;
+}
+
+nav {
+    height: 100%;
+    gap: 0.625em;
+}
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    justify-content: flex-start;
+}
