@@ -1,14 +1,14 @@
 import '../styles/stylesHeader.css'
 import '../styles/index.css'
-
-const Header = () => {
+import { Link } from 'react-router';
+const NavBar = () => {
     return(
         <header>
             <h1>Palabras Encadenadas</h1>
             <nav>
                 <ul>
                     <li>
-                        Ver mi historial
+                        <Link to="/historial">Ver mi historial</Link>
                     </li>
                     <li>
                         TUki
@@ -18,4 +18,4 @@ const Header = () => {
         </header>
     );
 }
-export default Header;
+export default NavBar;

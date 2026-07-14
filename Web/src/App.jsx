@@ -3,17 +3,23 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
-import Main from './components/Main'
 import Footer from './components/Footer'
-import Header from './components/Header'
+import { Routes, Route, Navigate } from 'react-router'
+import Historial from './components/Historial'
+import Layout from './utils/Layout'
+import Home from './components/Home'
+import NotFoundContent from './utils/NotFoundContent'
 function App() {
 
   return (
-    <>
-      <Header/>
-      <Main />
-      <Footer />
-    </>
+    <Routes>
+      <Route path="/" element={<Navigate to="/home" />} />
+      <Route element={<Layout />}>
+        <Route path="home" element={<Home />}/>
+        <Route path="historial" element={<Historial />}/>
+      </Route>
+      <Route path="*" element={<NotFoundContent />} />
+    </Routes>
   )
 }
 

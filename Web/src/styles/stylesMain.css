@@ -1,9 +1,11 @@
+/*
+#############
+    Main Content Styles
+############
+*/
 main {
     width: 100%;
     height: 100%;
-    margin: 0 auto;
-    background-image: url("../assets/backgroundInicial.jpg");
-    background-size: cover;
     object-fit: cover;
 }
 
@@ -15,19 +17,41 @@ button, input {
     font-family: Dudu, "Montserrat", sans-serif;
 }
 
+/*
+#############
+    Hero Section
+############
+*/
 .section-hero {
-    height: 100%;
+    margin: 0 auto;
+    gap: 1em;
+    min-height: 450px;
+}
+.section-hero article {
     width: 100%;
-    min-height: 225px;
-    margin: 0 auto;   
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-flow: dense;
+    grid-template-areas: 
+        "exp frm sts sts"
+        "exp frm sts sts";
+    margin: 0 auto;
+    padding: 1em;
+
 }
 .container-info-card {
+    grid-area: exp;
     border-radius: 2px;
     border: 1px solid black;
 }
 
-
+/*
+#############
+    Interactive Section
+############
+*/
 .section-interactive {
+    grid-area: frm;
     margin-top: 1em;
 }
 
@@ -38,5 +62,45 @@ form {
     gap: 1em;
     border-radius: 5px;
     border: 1px solid gray;
-    width: 50%;
+    width: 100%;
+    height: 100%;
+}
+
+/*
+#############
+    Points Section
+############
+*/
+.section-scoreboard {
+    grid-area: sts;
+    border: 1px solid white;
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.container-counter,
+.container-points {
+    width: 55%;
+    padding: 1.5em;
+    height: 115px;
+    text-align: center;
+    border-right: 3px solid gray;
+    border-radius: 10px;
+}
+.container-counter h3,
+.container-points h3 {
+    padding-left: 0.5em;
+    font-size: 2rem;
+    margin-bottom: 0.5em;
+}
+.container-counter span,
+.container-points span {
+    font-size: 1.6rem;
+}
+.container-points {
+}
+
+.container-counter span {
+    text-align: end;
 }
