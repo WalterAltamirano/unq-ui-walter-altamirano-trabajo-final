@@ -1,98 +1,113 @@
+import WordSuccess from "./atoms/WordSuccess";
 import { useEffect, useState } from "react";
 import ErrorMessage from "./atoms/ErrorMessage";
 import { getValidateWord } from "../services/wordService";
 import '../styles/stylesMain.css'
 import '../styles/index.css'
+import Scoreboard from "./ScoreBoard";
+import FormWords from "./FormWords";
+import CardInfo from "./CardInfo";
 
-const MainContent = () => {
+const MainContent = ({setHistorial}) => {
 
     const [error, setError] = useState("");
     const [points, setPoints] = useState(0);
     const [chainedWordsAtTheMoment, setChainedWordsAtTheMoment] = useState([]);
-    const [counter, setCounter] = useState({time: 15});
-
+    const [counter, setCounter] = useState(15);
+    const [isInGame, setIsInGame] = useState(false);
     useEffect(()=> {
         
-    },[error,chainedWordsAtTheMoment,points,counter])
+    },[error,chainedWordsAtTheMoment,points,counter,isInGame])
 
-    const isNotChained = (word) => {
-        return !chainedWordsAtTheMoment.includes(word);
+    const isChained = (word) => {
+        return chainedWordsAtTheMoment.find(wordChained => wordChained === word);
     }
     const isChainable = (word) => {
-        return chainedWordsAtTheMoment[0].endsWith(word.charAt(1));
+        return chainedWordsAtTheMoment[0].endsWith(word.charAt(0));
+    }
+    const runTime = () => {
+        return setInterval(() => setCounter(prevCounter => prevCounter - 1),1000)
+    }
+
+    const startGame = () => {
+        setIsInGame(true);
+        const valueForStop = runTime();
+        setTimeout(() => {
+            clearInterval(valueForStop)
+            endGame();
+        }, 15000);
+        
+    }
+    const endGame = () => {
+        setHistorial(prevHistorial => {
+            if(prevHistorial.length === 0) {
+                prevHistorial.unshift({number: 0, points: points, acumulateWords: chainedWordsAtTheMoment});
+            } else {
+                console.log(points)
+                prevHistorial.unshift({number: prevHistorial.length, points: points, acumulateWords: chainedWordsAtTheMoment});
+            }
+            return prevHistorial;
+        });
+        setIsInGame(false);
+        setChainedWordsAtTheMoment([]);
+        setPoints(0);
+        setCounter(15);
+        setError("");
     }
 
     const verifyIfTheWordSendendExists = async (formData) => {
-        setError("");
         const query = formData.get("query");
         if(!query) {
             setError("Por favor, escribi una palabra");
         }else {
             const data = await getValidateWord(query);
-            console.log(data.exists)
-            if(chainedWordsAtTheMoment.length === 0) { chainedWordsAtTheMoment.push(query)}
-            if(data.exists && isNotChained(query) && isChainable(query)) {
-                chainedWordsAtTheMoment.push(query)
-                setPoints(prevPoints => prevPoints + 1);
-                setError("");
+            if(data.exists) {
+                if(chainedWordsAtTheMoment.length === 0) {
+                    chainedWordsAtTheMoment.push(query)
+                    setPoints(prevPoints => {
+                        return prevPoints + query.length;
+                    });
+                    setError("");
+                } else { 
+                    if(!isChained(query)) {
+                        if(isChainable(query)) {
+                            setChainedWordsAtTheMoment(prevChainedWords => {
+                                prevChainedWords.unshift(query)
+                                return prevChainedWords;
+                            })
+                            setPoints(prevPoints => {
+                                return prevPoints + query.length;
+                            });
+                            setError("");
+                        } else {
+                            setError("La palabra no es encadenable");
+                        }
+                    } else {
+                        setError("La palabra ya fue encadenada");
+                    }
+                }
             } else {
-                setError("No existe la palabra ingresada");
+                setError("La palabra no existe en el diccionario predispuesto");
             }
-        } 
+        }
     }
-
+    const showWordAtTheMoment = () => {
+        return chainedWordsAtTheMoment.map(word => {
+            return <WordSuccess key={word} word={word} />
+        })
+    }
     
     return(
         <main>
             <section className="section-hero wrapper">
                 <article className="">
-                    <aside className="container-info-card">
-                        <h2>¿Como se juega?</h2>
-                        <p>
-                            Es muy facil!; por cada palabra que envies tenes que
-                            ingresar una palabra que sea posible encadenarla sigueindo
-                            estas reglas:
-                        </p>
-                        <ul>
-                            <li>
-                                <span>La letra final de cada palabra ingresada es la inicial de la siguiente</span>
-                            </li>
-                            <li>
-                                <span>No podes repetir una palabra ya encadenada</span>
-                            </li>
-                            <li>
-                                <span>
-                                    Podes enviar palabras que se te ocurran mientras el contador
-                                    no haya llegado a cero.
-                                </span>
-                            </li>
-                        </ul>
-                    </aside>
-               
+                    <CardInfo  />
                     <aside className="section-interactive wrapper">
-                        <form action={verifyIfTheWordSendendExists}>
-                            <label htmlFor="query">Ingresa tu palabra</label>
-                            <input
-                                id="query"
-                                name="query" 
-                                type="text" 
-                                placeholder="Escribi la palabra a encadenar"
-                            />
-                            <button type="submit">Enviar Palabra</button>
-                            {error && <ErrorMessage error={error}/>}
-                        </form>
-                        <button type="button">Iniciar Partida</button>
+                        <FormWords handleSubmit={verifyIfTheWordSendendExists} isInGame={isInGame} error={error}/>
+                        <button type="button" onClick={startGame} disabled={isInGame}>Iniciar Partida</button>
+                        {isInGame && <div className="container-success-words">{showWordAtTheMoment()}</div>}
                     </aside>
-                    <aside className="section-scoreboard">
-                        <div className="container-counter">
-                            <h3>Contador</h3>
-                            <span>{counter.time}</span>
-                        </div>
-                        <div className="container-points">
-                            <h3>Mis Puntos</h3>
-                            <span>{points}</span>
-                        </div>
-                    </aside>
+                    <Scoreboard counter={counter} points={points} />
                 </article>
             </section>
         </main>

@@ -8,10 +8,7 @@ const NavBar = () => {
             <nav>
                 <ul>
                     <li>
-                        <Link to="/historial">Ver mi historial</Link>
-                    </li>
-                    <li>
-                        TUki
+                        <Link className="link-historial" to="/historial">Ver mi historial</Link>
                     </li>
                 </ul>
             </nav>

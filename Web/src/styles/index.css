@@ -10,6 +10,7 @@
     src: url("../utils/typography/DK\ Business\ As\ Usual.ttf");
 }
 body {
+    background-color: #13071a;
     padding: 0;
     margin: 0;
     font-family: Dudu,"Montserrat", sans-serif;

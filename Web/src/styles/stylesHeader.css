@@ -1,16 +1,14 @@
 header {
     width: 100%;
-    height: 75px;
+    height: 55px;
     padding: 1em;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-radius: 2px;
-    border: 1px solid black;
+    background-color:  #d3a878;
 }
 
 nav {
-
     height: 100%;
     gap: 0.625em;
 }
@@ -20,4 +18,13 @@ nav ul {
     align-items: center;
     gap: 1em;
     justify-content: flex-start;
+}
+.link-historial {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #13071a;
+    text-decoration: none;
+}
+.link-historial:hover {
+    text-decoration: underline;
 }

@@ -10,6 +10,7 @@ main {
 }
 
 h2 {
+    color: white;
     margin: 0;
     padding: 0;
 }
@@ -28,6 +29,7 @@ button, input {
     min-height: 450px;
 }
 .section-hero article {
+    gap: 1em;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -36,14 +38,40 @@ button, input {
         "exp frm sts sts"
         "exp frm sts sts";
     margin: 0 auto;
-    padding: 1em;
 
 }
 .container-info-card {
     grid-area: exp;
-    border-radius: 2px;
-    border: 1px solid black;
+    border-radius: 10px;
+    padding: 1em;
 }
+.container-info-card h2 {
+    padding: 1em;
+    text-align: center;
+}
+.container-info-card p:hover {
+    transform: scale(1.1,1.1);
+}
+.container-info-card p {
+    color: white;
+    line-height: 1.5;
+    border: 2px solid #d3a878;
+    padding: 1em;
+    margin-top: 0.625em;
+    border-radius: 20px;
+}
+.container-info-card ul li span {
+    display: inline-block;
+    color: white;
+    line-height: 1.5;
+    border-left: 1px solid #d3a878;
+    border-right: 1px solid #d3a878;
+    padding: 1em;
+    margin-top: 0.625em;
+    border-radius: 1px;
+    width: 100%;
+}
+
 
 /*
 #############
@@ -61,11 +89,21 @@ form {
     align-items: center;
     gap: 1em;
     border-radius: 5px;
-    border: 1px solid gray;
     width: 100%;
-    height: 100%;
 }
 
+.container-success-words {
+    width: 100%;
+}
+.container-success-words .word-chained {
+    font-size: 0.9rem;
+    padding: 0.3em;
+    font-weight: 500;
+    color: white;
+}
+.container-success-words .last-char {
+    font-size: 1.1rem;
+}
 /*
 #############
     Points Section
@@ -73,29 +111,29 @@ form {
 */
 .section-scoreboard {
     grid-area: sts;
-    border: 1px solid white;
     display: flex;
     gap: 1em;
     flex-direction: column;
     align-items: flex-end;
+    width: 100%;
 }
 .container-counter,
 .container-points {
-    width: 55%;
-    padding: 1.5em;
-    height: 115px;
+    width: 100%;
+    padding: 1em;
     text-align: center;
-    border-right: 3px solid gray;
     border-radius: 10px;
 }
 .container-counter h3,
 .container-points h3 {
+    color:  #d3a878 ;
     padding-left: 0.5em;
     font-size: 2rem;
     margin-bottom: 0.5em;
 }
 .container-counter span,
 .container-points span {
+    color:  #d3a878 ;
     font-size: 1.6rem;
 }
 .container-points {
@@ -104,3 +142,4 @@ form {
 .container-counter span {
     text-align: end;
 }
+

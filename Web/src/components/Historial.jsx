@@ -1,25 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import '../styles/index.css'
+import '../styles/stylesHistorial.css'
+import Match from "./Match";
 
+const Historial = ({historial}) => {
+    
+    useEffect(() => {
 
-const Historial = () => {
-
-    const [matchs, setMatchs] = useState([]);
-
-
-    const getLastMatch =() => {
-        return matchs[0];
-    }
-    const updateMatchs = () => {
-        const recentMatch = {id: getLastMatch(),points: 0,}
-        setMatchs(prevMatchs => [...prevMatchs, recentMatch])
-
-    }
-
-
+    }, [historial])
   return(
-    <>
-        <p>APARECE EL HISTORIAL ACA</p>
-    </>
+    <section className="section-historial">
+        <h2 className="title-historial">Historial de Partidas Jugadas</h2>
+        {historial.length != 0 && 
+            <ul className="container-matchs">
+                {historial.map(match => {
+                    return <Match {...match} />
+                })}
+            </ul>
+        }
+    </section>
   );
     
 }
