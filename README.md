@@ -8,7 +8,7 @@
     * Instalar segun tu Sistema Operativo siguiendo los pasos en en el sitio oficial.   
 
 ## Guida de Instalacion:
-* Para descargar el proyecto, se debe ejecutar el comando "git clone " en la consola de su sistema operativo ("cmd" en Windows,"prompt" en linux),
+* Para descargar el proyecto, se debe ejecutar el comando `git clone` en la consola de su sistema operativo ("cmd" en Windows,"terminal" en linux),
   en la carpeta/directorio que desea guardarlo.
 
 
