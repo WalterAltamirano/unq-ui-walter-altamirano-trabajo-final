@@ -6,7 +6,6 @@ import '../styles/stylesMain.css'
 import '../styles/index.css'
 import Scoreboard from "./ScoreBoard";
 import FormWords from "./FormWords";
-import CardInfo from "./CardInfo";
 
 const MainContent = ({setHistorial}) => {
 
@@ -101,7 +100,6 @@ const MainContent = ({setHistorial}) => {
         <main>
             <section className="section-hero wrapper">
                 <article className="">
-                    <CardInfo  />
                     <aside className="section-interactive wrapper">
                         <FormWords handleSubmit={verifyIfTheWordSendendExists} isInGame={isInGame} error={error}/>
                         <button type="button" onClick={startGame} disabled={isInGame}>Iniciar Partida</button>
