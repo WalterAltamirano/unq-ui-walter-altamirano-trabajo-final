@@ -1,10 +1,10 @@
 # unq-ui-walter-altamirano-trabajo-final
 
 ## Instalaciones Requeridas:
-* NodeJS --> https://nodejs.org/en/download
+* NodeJS --> [NodeJs Site](https://nodejs.org/en/download)
     * Instalar segun tu Sistema Operativo utilizando versiones estables (LTS)
       
-* Git --> https://git-scm.com/install/
+* Git --> [Git Site](https://git-scm.com/install/)
     * Instalar segun tu Sistema Operativo siguiendo los pasos en en el sitio oficial.   
 
 ## Guida de Instalacion:
