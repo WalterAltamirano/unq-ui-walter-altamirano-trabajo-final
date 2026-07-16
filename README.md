@@ -10,7 +10,10 @@
 ## Guida de Instalacion:
 * Para descargar el proyecto, se debe ejecutar el comando `git clone` en la consola de su sistema operativo ("cmd" en Windows,"terminal" en linux),
   en la carpeta/directorio que desea guardarlo.
+```
+> git clone <URL-DEL-PROYECTO>
 
+```
 
 
 
