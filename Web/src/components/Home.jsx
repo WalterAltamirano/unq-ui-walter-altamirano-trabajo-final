@@ -1,8 +1,8 @@
 import MainContent from './MainContent';
-const Home = ({setHistorial}) => {
+const Home = ({setHistorial, historial}) => {
     return(
         <>
-            <MainContent setHistorial={setHistorial}/>
+            <MainContent setHistorial={setHistorial} historial={historial}/>
         </>
     );
 }

@@ -12,7 +12,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Navigate to="/home" />} />
       <Route element={<Layout />}>
-        <Route path="home" element={<Home setHistorial={setHistorial}/>}/>
+        <Route path="home" element={<Home setHistorial={setHistorial} historial={historial}/>}/>
         <Route path="historial" element={<Historial historial={historial}/>}/>
       </Route>
       <Route path="*" element={<NotFoundContent />} />

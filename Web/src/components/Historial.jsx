@@ -10,8 +10,8 @@ const Historial = ({historial}) => {
         <h2 className="title-historial">Historial de Partidas Jugadas</h2>
         {historial.length != 0 && 
             <ul className="container-matchs">
-                {historial.map(match => {
-                    return <Match {...match} />
+                {historial.map((match,index)=> {
+                    return <Match key={`${match.number}-${index}`} {...match} />
                 })}
             </ul>
         }
