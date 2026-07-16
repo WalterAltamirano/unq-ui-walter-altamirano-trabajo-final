@@ -17,5 +17,4 @@
 
 * Abrir el navegador(Chrome, FireFox, Brave, Opera, etc...) y escribir el siguiente link: http://localhost:5173/
 
-# Imagenes del Juego
 
