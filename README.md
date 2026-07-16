@@ -13,14 +13,17 @@
 ```
 > git clone <URL-DEL-PROYECTO>
 ```
-* Ahora necesitamos instalar las dependencias parandonos en la carpeta donde esta el proyecto con el nombre ***∼/unq-ui-walter-altamirano-trabajo-final***
+* Ahora necesitamos instalar las dependencias parandonos en la carpeta donde esta el desarrollo del juego con el nombre ***∼/unq-ui-walter-altamirano-trabajo-final/Web***
    * Simplemente ejecutar el siguiente comando: 
 ```
 > npm i 
 ```
-   
-
-
+### Ejecutar Juego
+* Una vez instalado el juego, procedemos a ejecutarlo para abrirlo en el navegador; para eso necesitamos ejecutar el siguiente comando:
+   * En este paso, hay que estar en la carpeta llamada Web ***∼/unq-ui-walter-altamirano-trabajo-final/Web***
+```
+> npm run dev
+```
 * Abrir el navegador(Chrome, FireFox, Brave, Opera, etc...) y escribir el siguiente link: http://localhost:5173/
 
 
