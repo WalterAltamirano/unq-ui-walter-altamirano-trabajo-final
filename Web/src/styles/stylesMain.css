@@ -1,0 +1,175 @@
+/*
+#############
+    Main Content Styles
+############
+*/
+main {
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+button, input {
+    font-family: Dudu, "Montserrat", sans-serif;
+}
+
+/*
+#############
+    Hero Section
+############
+*/
+.section-hero {
+    gap: 1em;
+    height: 100vh;
+}
+.cnt-sub-hero {
+    gap: 2em;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/*
+#############
+    Interactive Section
+############
+*/
+.aside-interactive {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 1em;
+}
+.aside-interactive .btn-startGame {
+    margin-top: 2em;
+    padding: 1em;
+    color: #13071a;
+    font-weight: 700;
+    align-self: center;
+    border-radius: 2px;
+    width: 50%;
+}
+.btn-startGame:hover {
+    transform: scale(1.02,1.02);
+}
+form {
+    padding: 2em;
+    border-radius: 8px;
+    background-color:#554657;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1em;
+    border-radius: 5px;
+    width: 100%;
+}
+form:hover {
+    box-shadow: 1px 3px 3px 1px #554657;
+}
+.title-form {
+    color: #d3a878;
+}
+form label {
+    font-weight: 700;
+    color: white ;
+}
+form input {
+    color: #f5eed6;
+    font-weight: 700;
+    box-shadow: 1px 1px 1px 1px #13071a ;
+    width: 100%;
+    height: 65px;
+    border-radius: 5px;
+    border-style: hidden;
+    padding: 1em 2em 1em 1em;
+    font-size: 1rem;
+    background-color: #13071a;
+}
+form .btn-send-word {
+    padding: 0.5em 1em 0.5em 1em;
+    color: #13071a;
+    
+}
+/*
+#############
+    Container Words Correct
+#############
+*/
+.container-success-words {
+    border-radius: 8px;
+    padding: 1em;
+    width: 100%;
+    min-height: 85px;
+}
+.cnt-last-match {
+    padding: 0;
+    margin: 0;
+}
+.cnt-last-match h4 {
+    font-size: 2rem;
+    color: white;
+}
+.container-success-words .word-chained {
+    font-size: 1.25rem;
+    padding: 0.4em;
+    font-weight: 500;
+    color: white;
+}
+.container-success-words .last-char {
+    font-size: 1.75rem;
+}
+/*
+#############
+    Points Section
+############
+*/
+.section-scoreboard {
+    border-radius: 8px;
+    background-color:#554657;
+    grid-area: sts;
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 0;
+    padding-bottom: 0em;
+    width: 33%;
+}
+.section-scoreboard:hover {
+    box-shadow: 1px 2px 2px 1px #554657;
+}
+.container-counter,
+.container-points {
+    width: 100%;
+    padding: 1em;
+    text-align: center;
+    border-radius: 10px;
+}
+.container-counter h3,
+.container-points h3 {
+    color: #d1a473;
+    padding-left: 0.5em;
+    font-size: 2rem;
+    margin-bottom: 0.5em;
+}
+.container-counter span,
+.container-points span {
+    color:  white ;
+    font-size: 1.6rem;
+}
+.container-points {
+}
+
+.container-counter span {
+    text-align: end;
+}
+
