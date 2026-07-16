@@ -4,9 +4,8 @@
 ############
 */
 main {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    margin: 0;
+    padding: 0;
 }
 
 h2 {
@@ -24,85 +23,109 @@ button, input {
 ############
 */
 .section-hero {
-    margin: 0 auto;
     gap: 1em;
-    min-height: 450px;
+    height: 100vh;
 }
-.section-hero article {
-    gap: 1em;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-flow: dense;
-    grid-template-areas: 
-        "exp frm sts sts"
-        "exp frm sts sts";
+.cnt-sub-hero {
+    gap: 2em;
     margin: 0 auto;
-
-}
-.container-info-card {
-    grid-area: exp;
-    border-radius: 10px;
-    padding: 1em;
-}
-.container-info-card h2 {
-    padding: 1em;
-    text-align: center;
-}
-.container-info-card p:hover {
-    transform: scale(1.1,1.1);
-}
-.container-info-card p {
-    color: white;
-    line-height: 1.5;
-    border: 2px solid #d3a878;
-    padding: 1em;
-    margin-top: 0.625em;
-    border-radius: 20px;
-}
-.container-info-card ul li span {
-    display: inline-block;
-    color: white;
-    line-height: 1.5;
-    border-left: 1px solid #d3a878;
-    border-right: 1px solid #d3a878;
-    padding: 1em;
-    margin-top: 0.625em;
-    border-radius: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
+    height: 100%;
 }
-
 
 /*
 #############
     Interactive Section
 ############
 */
-.section-interactive {
-    grid-area: frm;
-    margin-top: 1em;
-}
-
-form {
+.aside-interactive {
+    width: 50%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    margin-top: 1em;
+}
+.aside-interactive .btn-startGame {
+    margin-top: 2em;
+    padding: 1em;
+    color: #13071a;
+    font-weight: 700;
+    align-self: center;
+    border-radius: 2px;
+    width: 50%;
+}
+.btn-startGame:hover {
+    transform: scale(1.02,1.02);
+}
+form {
+    padding: 2em;
+    border-radius: 8px;
+    background-color:#554657;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     gap: 1em;
     border-radius: 5px;
     width: 100%;
 }
-
-.container-success-words {
+form:hover {
+    box-shadow: 1px 3px 3px 1px #554657;
+}
+.title-form {
+    color: #d3a878;
+}
+form label {
+    font-weight: 700;
+    color: white ;
+}
+form input {
+    color: #f5eed6;
+    font-weight: 700;
+    box-shadow: 1px 1px 1px 1px #13071a ;
     width: 100%;
+    height: 65px;
+    border-radius: 5px;
+    border-style: hidden;
+    padding: 1em 2em 1em 1em;
+    font-size: 1rem;
+    background-color: #13071a;
+}
+form .btn-send-word {
+    padding: 0.5em 1em 0.5em 1em;
+    color: #13071a;
+    
+}
+/*
+#############
+    Container Words Correct
+#############
+*/
+.container-success-words {
+    border-radius: 8px;
+    padding: 1em;
+    width: 100%;
+    min-height: 85px;
+}
+.cnt-last-match {
+    padding: 0;
+    margin: 0;
+}
+.cnt-last-match h4 {
+    font-size: 2rem;
+    color: white;
 }
 .container-success-words .word-chained {
-    font-size: 0.9rem;
-    padding: 0.3em;
+    font-size: 1.25rem;
+    padding: 0.4em;
     font-weight: 500;
     color: white;
 }
 .container-success-words .last-char {
-    font-size: 1.1rem;
+    font-size: 1.75rem;
 }
 /*
 #############
@@ -110,12 +133,19 @@ form {
 ############
 */
 .section-scoreboard {
+    border-radius: 8px;
+    background-color:#554657;
     grid-area: sts;
     display: flex;
     gap: 1em;
     flex-direction: column;
     align-items: flex-end;
-    width: 100%;
+    margin: 0;
+    padding-bottom: 0em;
+    width: 33%;
+}
+.section-scoreboard:hover {
+    box-shadow: 1px 2px 2px 1px #554657;
 }
 .container-counter,
 .container-points {
@@ -126,14 +156,14 @@ form {
 }
 .container-counter h3,
 .container-points h3 {
-    color:  #d3a878 ;
+    color: #d1a473;
     padding-left: 0.5em;
     font-size: 2rem;
     margin-bottom: 0.5em;
 }
 .container-counter span,
 .container-points span {
-    color:  #d3a878 ;
+    color:  white ;
     font-size: 1.6rem;
 }
 .container-points {

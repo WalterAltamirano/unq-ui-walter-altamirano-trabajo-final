@@ -1,7 +1,7 @@
 header {
     width: 100%;
     height: 55px;
-    padding: 1em;
+    padding: 1.5em 1em 1.5em 1em;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -9,6 +9,7 @@ header {
 }
 
 nav {
+    min-width: 115px;
     height: 100%;
     gap: 0.625em;
 }
@@ -25,6 +26,6 @@ nav ul {
     color: #13071a;
     text-decoration: none;
 }
-.link-historial:hover {
+.link-historial:hover { 
     text-decoration: underline;
 }

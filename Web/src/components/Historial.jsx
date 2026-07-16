@@ -1,13 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import '../styles/index.css'
 import '../styles/stylesHistorial.css'
 import Match from "./Match";
 
 const Historial = ({historial}) => {
     
-    useEffect(() => {
-
-    }, [historial])
   return(
     <section className="section-historial">
         <h2 className="title-historial">Historial de Partidas Jugadas</h2>

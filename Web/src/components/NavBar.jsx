@@ -8,6 +8,9 @@ const NavBar = () => {
             <nav>
                 <ul>
                     <li>
+                        <Link className="link-historial" to="/home">Menu Principal</Link>
+                    </li>
+                    <li>
                         <Link className="link-historial" to="/historial">Ver mi historial</Link>
                     </li>
                 </ul>

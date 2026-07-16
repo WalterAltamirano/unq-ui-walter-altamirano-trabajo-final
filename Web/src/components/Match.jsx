@@ -7,6 +7,7 @@ const Match = ({number,points,acumulateWords}) => {
             <h3>Partida numero: {number}</h3>
             <span>Puntos en la partida: {points}</span>
             <div className='container-word-acumulates'>
+                <h3>Palabras Encadenadas: </h3>
                 {acumulateWords.map(word => {
                     return <span className='word-acumulate'>{`${word} `}</span>
                 })}
