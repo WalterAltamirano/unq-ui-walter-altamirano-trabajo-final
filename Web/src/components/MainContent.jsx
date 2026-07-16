@@ -7,13 +7,14 @@ import '../styles/index.css'
 import Scoreboard from "./ScoreBoard";
 import FormWords from "./FormWords";
 
-const MainContent = ({setHistorial}) => {
+const MainContent = ({setHistorial, historial}) => {
 
     const [error, setError] = useState("");
     const [points, setPoints] = useState(0);
     const [chainedWordsAtTheMoment, setChainedWordsAtTheMoment] = useState([]);
     const [counter, setCounter] = useState(15);
     const [isInGame, setIsInGame] = useState(false);
+
     useEffect(() => {
         let timer;
         if (isInGame && counter > 0) {
@@ -42,7 +43,6 @@ const MainContent = ({setHistorial}) => {
     }
     const endGame = () => {
         setHistorial(prevHistorial => {
-            console.log(points);
             prevHistorial.unshift({
                 number: prevHistorial.length + 1, 
                 points: points, 
@@ -67,6 +67,7 @@ const MainContent = ({setHistorial}) => {
                     setPoints(prevPoints => {
                         return prevPoints + query.length;
                     });
+                    setCounter(15);
                     setError("");
                 } else { 
                     if(!isChained(query)) {
@@ -78,6 +79,7 @@ const MainContent = ({setHistorial}) => {
                             setPoints(prevPoints => {
                                 return prevPoints + query.length;
                             });
+                            setCounter(15);
                             setError("");
                         } else {
                             setError("La palabra no es encadenable");
@@ -91,10 +93,16 @@ const MainContent = ({setHistorial}) => {
             }
         }
     }
-    const showWordAtTheMoment = () => {
-        return chainedWordsAtTheMoment.map(word => {
-            return <WordSuccess key={word} word={word} />
-        })
+        const showWordAtTheMoment = () => {
+        let wordsToShow = [];
+        if (chainedWordsAtTheMoment.length > 0) {
+            wordsToShow = chainedWordsAtTheMoment;
+        } else if (historial && historial.length > 0) {
+            wordsToShow = historial[0].acumulateWords;
+        }
+        return wordsToShow.map((word, index) => {
+            return <WordSuccess key={`${word}-${index}`} word={word} /> 
+        });
     }
     
     return(

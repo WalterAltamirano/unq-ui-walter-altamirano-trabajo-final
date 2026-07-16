@@ -105,10 +105,24 @@ form .btn-send-word {
 #############
 */
 .container-success-words {
+    max-height: 150px;
+    overflow-y: auto; 
+    align-content: flex-start;
     border-radius: 8px;
     padding: 1em;
     width: 100%;
     min-height: 85px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container-success-words::-webkit-scrollbar {
+    width: 6px;
+}
+.container-success-words::-webkit-scrollbar-thumb {
+    background-color: #d3a878; 
+    border-radius: 4px;
 }
 .cnt-last-match {
     padding: 0;
@@ -123,6 +137,7 @@ form .btn-send-word {
     padding: 0.4em;
     font-weight: 500;
     color: white;
+    display: inline-block;
 }
 .container-success-words .last-char {
     font-size: 1.75rem;
@@ -165,8 +180,6 @@ form .btn-send-word {
 .container-points span {
     color:  white ;
     font-size: 1.6rem;
-}
-.container-points {
 }
 
 .container-counter span {

@@ -1,7 +1,4 @@
 
-.section-historial {
-
-}
 
 .title-historial {
     margin-top: 1em;
@@ -44,8 +41,8 @@
 
 .container-word-acumulates {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
     gap: 0.1em;
 }
 
