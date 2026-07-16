@@ -12,10 +12,13 @@
   en la carpeta/directorio que desea guardarlo.
 ```
 > git clone <URL-DEL-PROYECTO>
-
 ```
-
-
+* Ahora necesitamos instalar las dependencias parandonos en la carpeta donde esta el proyecto con el nombre ***∼/unq-ui-walter-altamirano-trabajo-final***
+   * Simplemente ejecutar el siguiente comando: 
+```
+> npm i 
+```
+   
 
 
 * Abrir el navegador(Chrome, FireFox, Brave, Opera, etc...) y escribir el siguiente link: http://localhost:5173/
